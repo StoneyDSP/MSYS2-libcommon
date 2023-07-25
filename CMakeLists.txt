@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.17...3.27 FATAL_ERROR)
 
-project(libcommon)
+project(LibCommon)
 enable_language(C)
 
 
@@ -33,7 +33,7 @@ if (NOT ${PROJECT_SOURCE_DIR} EQUAL ${PROJECT_BINARY_DIR})
 
 endif ()
 
-add_library (common 															STATIC)
+add_library (common 											STATIC)
 add_library (pacman::common                    					ALIAS common)
 
 target_include_directories (common
@@ -129,7 +129,13 @@ configure_package_config_file (
 install (
 	FILES
 		"${CMAKE_CURRENT_BINARY_DIR}/share/LibCommonConfig.cmake"
-		"${CMAKE_CURRENT_BINARY_DIR}/share/LibCommonConfigVersion.cmake"
+		# "${CMAKE_CURRENT_BINARY_DIR}/share/LibCommonConfigVersion.cmake"
 	DESTINATION
 		"${CMAKE_INSTALL_LIBDIR}/cmake/LibCommon"
+)
+
+export(
+	EXPORT LibCommonTargets
+	FILE "${CMAKE_CURRENT_BINARY_DIR}/share/LibCommonTargets.cmake"
+	NAMESPACE pacman::common::
 )
