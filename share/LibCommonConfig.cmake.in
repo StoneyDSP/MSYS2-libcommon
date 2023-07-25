@@ -2,4 +2,4 @@
 
 include("${CMAKE_CURRENT_LIST_DIR}/LibCommonTargets.cmake")
 
-check_required_components_macro(common)
+check_required_components(common)
