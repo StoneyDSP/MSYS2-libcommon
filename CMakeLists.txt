@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.17...3.27 FATAL_ERROR)
 project(LibCommon)
 enable_language(C)
 
+include(GNUInstallDirs)
+set(LibCommon_INCLUDEDIR "${CMAKE_CURRENT_BINARY_DIR}/include")
 
 include(CheckFunctionExists)
 set(LIBCOMMON_REQUIRED_SYSTEM_FUNCTIONS)
@@ -112,7 +114,7 @@ install(
 install (
 	EXPORT LibCommonTargets
 	FILE LibCommonTargets.cmake
-	NAMESPACE pacman::common::
+	NAMESPACE pacman::
 	DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake/pacman/common"
 )
 
@@ -137,5 +139,5 @@ install (
 export(
 	EXPORT LibCommonTargets
 	FILE "${CMAKE_CURRENT_BINARY_DIR}/share/LibCommonTargets.cmake"
-	NAMESPACE pacman::common::
+	NAMESPACE pacman::
 )
