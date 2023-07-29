@@ -25,7 +25,7 @@ unset(_symbol)
 
 if (NOT ${PROJECT_SOURCE_DIR} EQUAL ${PROJECT_BINARY_DIR})
 
-	configure_file ("include/common/defines.h"       							"include/common/defines.h")
+	# configure_file ("include/common/defines.h"       							"include/common/defines.h")
 
     configure_file ("include/common/ini.h"       								"include/common/ini.h")
 	configure_file ("include/common/util-common.h"        						"include/common/util-common.h")
