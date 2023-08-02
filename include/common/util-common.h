@@ -24,17 +24,16 @@
  *
 **/
 
-#ifndef PM_UTIL_COMMON_H_INCLUDED
+#if !defined(PM_UTIL_COMMON_H_INCLUDED)
+
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
 #define PM_UTIL_COMMON_H_INCLUDED
 
 #include <stdio.h>
 #include <sys/stat.h> /** struct stat */
-
-#include "defines.h"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 char *hex_representation(const unsigned char *bytes, size_t size);
 const char *mbasename(const char *path);
@@ -58,5 +57,4 @@ char *strndup(const char *s, size_t n);
 #ifdef __cplusplus
 };
 #endif
-
 #endif /** PM_UTIL_COMMON_H_INCLUDED */
