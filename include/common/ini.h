@@ -1,6 +1,4 @@
 /**
- * @file ini.h
- *
  * @copyright
  *
  * Copyright (c) 2006-2021
@@ -24,20 +22,21 @@
  *
  */
 
-#ifndef PM_INI_H_INCLUDED
-#define PM_INI_H_INCLUDED
+#if !defined(PM_INI_H_INCLUDED)
 
-#ifdef __cplusplus
+#if defined(__cplusplus)
 extern "C" {
 #endif
 
-typedef int (ini_parser_fn)(const char *file, int line, const char *section,
-		char *key, char *value, void *data);
+#define PM_INI_H_INCLUDED
+
+typedef int (ini_parser_fn)(const char *file, int line, const char *section, char *key, char *value, void *data);
 
 int parse_ini(const char *file, ini_parser_fn cb, void *data);
 
-#ifdef __cplusplus
-};
-#endif
 
+
+#ifdef __cplusplus
+}
+#endif
 #endif /** PM_INI_H_INCLUDED */
