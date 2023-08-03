@@ -22,12 +22,12 @@
  * section, key, and value set to NULL and errno set by fopen, fgets, or
  * strdup.
  *
- * @note The @a key and @a value passed to @ cb will be overwritten between
+ * @note The @a key and @a value passed to @a cb will be overwritten between
  * calls.  The section name will remain valid until after @a cb is called to
  * begin a new section.
  *
  * @note Parsing will immediately stop if the callback returns non-zero.
- */
+*/
 int parse_ini(const char *file, ini_parser_fn cb, void *data)
 {
 	char line[PATH_MAX], *section_name = NULL;
@@ -70,6 +70,7 @@ int parse_ini(const char *file, ini_parser_fn cb, void *data)
 		}
 
 		/** Directive */
+
 		/** strsep modifies the 'line' string: 'key \0 value' */
 		key = line;
 		value = line;
@@ -77,6 +78,7 @@ int parse_ini(const char *file, ini_parser_fn cb, void *data)
 		strtrim(key);
 		strtrim(value);
 
+		/* NOLINTNEXTLINE */
 		if((ret = cb(file, linenum, section_name, key, value, data)) != 0) {
 			goto cleanup;
 		}

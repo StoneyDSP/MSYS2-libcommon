@@ -1,4 +1,6 @@
 /**
+ * @file ini.h
+ *
  * @copyright
  *
  * Copyright (c) 2006-2021
@@ -20,23 +22,21 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
- */
+*/
 
-#if !defined(PM_INI_H_INCLUDED)
+#ifndef PM_INI_H
+#define PM_INI_H
 
-#if defined(__cplusplus)
+#ifdef __cplusplus
 extern "C" {
 #endif
-
-#define PM_INI_H_INCLUDED
 
 typedef int (ini_parser_fn)(const char *file, int line, const char *section, char *key, char *value, void *data);
 
 int parse_ini(const char *file, ini_parser_fn cb, void *data);
 
-
-
 #ifdef __cplusplus
 }
-#endif
-#endif /** PM_INI_H_INCLUDED */
+#endif /* __cplusplus */
+
+#endif /* PM_INI_H */
