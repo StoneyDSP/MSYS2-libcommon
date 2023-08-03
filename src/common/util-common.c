@@ -1,3 +1,4 @@
+
 #include <ctype.h>
 #include <errno.h>
 #include <stdlib.h>
@@ -177,7 +178,7 @@ size_t strtrim(char *str)
  */
 static size_t strnlen(const char *s, size_t max)
 {
-	register const char *p; /** NOLINT */
+	register const char *p;
 	for(p = s; *p && max--; ++p);
 	return (p - s);
 }

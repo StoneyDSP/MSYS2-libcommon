@@ -22,18 +22,17 @@
  *
  * If not, see <http://www.gnu.org/licenses/>.
  *
-**/
+*/
 
-#if !defined(PM_UTIL_COMMON_H_INCLUDED)
-
-#if defined(__cplusplus)
-extern "C" {
-#endif
-
-#define PM_UTIL_COMMON_H_INCLUDED
+#ifndef PM_UTIL_COMMON_H
+#define PM_UTIL_COMMON_H
 
 #include <stdio.h>
 #include <sys/stat.h> /** struct stat */
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 char *hex_representation(const unsigned char *bytes, size_t size);
 const char *mbasename(const char *path);
@@ -55,6 +54,7 @@ char *strndup(const char *s, size_t n);
 #define ARRAYSIZE(a) (sizeof (a) / sizeof (a[0]))
 
 #ifdef __cplusplus
-};
-#endif
+}
+#endif /* __cplusplus */
+
 #endif /** PM_UTIL_COMMON_H_INCLUDED */
