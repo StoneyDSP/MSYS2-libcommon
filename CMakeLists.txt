@@ -8,7 +8,7 @@ set(CMAKE_C_STANDARD_REQUIRED TRUE)
 
 
 include(GNUInstallDirs)
-set(LibCommon_INCLUDEDIR "${CMAKE_CURRENT_BINARY_DIR}/include")
+set(LibCommon_INCLUDEDIR "${CMAKE_CURRENT_BINARY_DIR}/include/pacman/common")
 
 include(CheckFunctionExists)
 set(LIBCOMMON_REQUIRED_SYSTEM_FUNCTIONS)
