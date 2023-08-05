@@ -3,6 +3,10 @@ cmake_minimum_required(VERSION 3.17...3.27 FATAL_ERROR)
 project(LibCommon)
 enable_language(C)
 
+set(CMAKE_C_STANDARD 17)
+set(CMAKE_C_STANDARD_REQUIRED TRUE)
+
+
 include(GNUInstallDirs)
 set(LibCommon_INCLUDEDIR "${CMAKE_CURRENT_BINARY_DIR}/include")
 
@@ -88,13 +92,13 @@ set_target_properties (common
         ARCHIVE_OUTPUT_DIRECTORY lib
         PDB_OUTPUT_DIRECTORY     bin
 
-		C_STANDARD 99
+		C_STANDARD 17
 		C_STANDARD_REQUIRED TRUE
 		VISIBILITY_INLINES_HIDDEN TRUE
 		HAS_CXX FALSE
 )
 
-target_compile_features(common PUBLIC c_std_99)
+target_compile_features(common PUBLIC c_std_17)
 
 # find_package(pacman)
 # target_link_libraries(common PUBLIC pacman::configuration)
