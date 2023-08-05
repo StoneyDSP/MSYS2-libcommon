@@ -2,9 +2,16 @@
 #include <ctype.h>
 #include <errno.h>
 #include <stdlib.h>
-#include <string.h>
 
-#include "util-common.h"
+#if __has_include(<string.h>)
+#	include <string.h>
+#	define HAVE_STRNLEN strnlen()
+#	define HAVE_STRNDUP strndup()
+#else
+#	error "No string functions found! Check your system includes for an std 'string.h'"
+#endif
+
+#include "pacman/common/util-common.h"
 
 /** Create a string representing bytes in hexadecimal.
  * @param bytes the bytes to represent in hexadecimal

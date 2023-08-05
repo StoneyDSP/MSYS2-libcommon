@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <string.h> /** strdup */
 
-#include "ini.h"
-#include "util-common.h"
+#include "pacman/common/ini.h"
+#include "pacman/common/util-common.h"
 
 /**
  * @brief Parse a pacman-style INI config file.
@@ -78,7 +78,6 @@ int parse_ini(const char *file, ini_parser_fn cb, void *data)
 		strtrim(key);
 		strtrim(value);
 
-		/* NOLINTNEXTLINE */
 		if((ret = cb(file, linenum, section_name, key, value, data)) != 0) {
 			goto cleanup;
 		}

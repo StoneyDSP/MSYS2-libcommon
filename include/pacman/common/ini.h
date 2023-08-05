@@ -37,6 +37,6 @@ int parse_ini(const char *file, ini_parser_fn cb, void *data);
 
 #ifdef __cplusplus
 }
-#endif /* __cplusplus */
+#endif /** __cplusplus */
 
-#endif /* PM_INI_H */
+#endif /** PM_INI_H */

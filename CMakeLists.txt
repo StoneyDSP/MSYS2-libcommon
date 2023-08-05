@@ -27,23 +27,23 @@ if (NOT ${PROJECT_SOURCE_DIR} EQUAL ${PROJECT_BINARY_DIR})
 
 	# configure_file ("include/common/defines.h"       							"include/common/defines.h")
 
-    configure_file ("include/common/ini.h"       								"include/common/ini.h")
-	configure_file ("include/common/util-common.h"        						"include/common/util-common.h")
+    configure_file ("include/pacman/common/ini.h"       						"include/pacman/common/ini.h")
+	configure_file ("include/pacman/common/util-common.h"        				"include/pacman/common/util-common.h")
 
-	configure_file ("src/common/ini.c"          								"src/common/ini.c")
-    configure_file ("src/common/util-common.c"             						"src/common/util-common.c")
+	configure_file ("src/pacman/common/ini.c"          							"src/pacman/common/ini.c")
+    configure_file ("src/pacman/common/util-common.c"             				"src/pacman/common/util-common.c")
 
 endif ()
 
-add_library (common 											STATIC)
-add_library (pacman::common                    					ALIAS common)
+add_library (common 															STATIC)
+add_library (pacman::common                    									ALIAS common)
 
 target_include_directories (common
 
     PUBLIC
 
-        $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include/common>
-        $<INSTALL_INTERFACE:include/common>
+        $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include>
+        $<INSTALL_INTERFACE:include>
 )
 
 # include("./include/common/CMakeLists.txt")
@@ -55,15 +55,15 @@ target_sources (common
         FILE_SET common_PUBLIC_HEADERS
         TYPE HEADERS
         BASE_DIRS
-            $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include/common>
-            $<INSTALL_INTERFACE:include/common>
+            $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include/pacman/common>
+            $<INSTALL_INTERFACE:include/pacman/common>
         FILES
-            # include/common/ini.h
-            $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include/common/ini.h>
-            $<INSTALL_INTERFACE:include/common/ini.h>
-			# include/common/util-common.h
-            $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include/common/util-common.h>
-            $<INSTALL_INTERFACE:include/common/util-common.h>
+            # include/pacman/common/ini.h
+            $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include/pacman/common/ini.h>
+            $<INSTALL_INTERFACE:include/pacman/common/ini.h>
+			# include/pacman/common/util-common.h
+            $<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/include/pacman/common/util-common.h>
+            $<INSTALL_INTERFACE:include/pacman/common/util-common.h>
 )
 
 # include("./src/common/CMakeLists.txt")
@@ -72,12 +72,12 @@ target_sources (common
 
     PRIVATE
 
-		# src/common/ini.c
-		$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/src/common/ini.c>
-		$<INSTALL_INTERFACE:src/common/ini.c>
-		# src/common/util-common.c
-		$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/src/common/util-common.c>
-		$<INSTALL_INTERFACE:src/common/util-common.c>
+		# src/pacman/common/ini.c
+		$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/src/pacman/common/ini.c>
+		$<INSTALL_INTERFACE:src/pacman/common/ini.c>
+		# src/pacman/common/util-common.c
+		$<BUILD_INTERFACE:${PROJECT_BINARY_DIR}/src/pacman/common/util-common.c>
+		$<INSTALL_INTERFACE:src/pacman/common/util-common.c>
 )
 
 set_target_properties (common
